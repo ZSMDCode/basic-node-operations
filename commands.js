@@ -6,8 +6,6 @@ function done(output) {
     process.stdout.write('\nprompt > ');
 }
 
-
-
 //where we will store our commands
 function evaluateCmd(userInput) {
  //parses the user input to understand which command was typed
@@ -28,7 +26,7 @@ function evaluateCmd(userInput) {
   case "tail":
     commandLibrary.tail(userInputArray.slice(1));
     break;
-  case "error":
+  case "default":
     commandLibrary.errorHandler(userInput);
     break;
   }
