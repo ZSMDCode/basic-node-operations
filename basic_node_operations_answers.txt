@@ -1,0 +1,97 @@
+1.
+>sort command: returns the file sorted alphabetically by line
+OUTPUT =
+done(data);
+           if (err) throw err;
+        break;
+        commandLibrary.cat(userInputArray.slice(1));
+       //we will add the functionality of echo next within the object commandLibrary
+       break;
+       commandLibrary.echo(userInputArray.slice(1).join(" "));
+       const fileName = fullPath[0];
+       fs.readFile(fileName, (err, data) => {
+       });
+      case "cat":
+      case "echo":
+      done(userInput);
+     process.stdout.write('\nprompt > ');
+     process.stdout.write(output);
+    switch (command) {
+    }
+   "echo": function(userInput) {
+   //the echo command
+   const command = userInputArray[0];
+   const userInputArray = userInput.split(" ");
+   }
+  "cat": function(fullPath) {
+  //parses the user input to understand which command was typed
+  //the cat command
+  },
+ const commandLibrary = {
+ function done(output) {
+ function evaluateCmd(userInput) {
+ module.exports.commandLibrary = commandLibrary;
+ module.exports.evaluateCmd = evaluateCmd;
+ }
+ }
+ };
+
+> wc command: prints newline, word, and byte counts for a file
+OUTPUT =
+  42     119    1127 commands.js
+
+> uniq filename sorts each line in a file and only returns different lines. If there is a line in a file that is the same as a line above it, uniq removes it from the output.
+OUTPUT =
+const fs = require("fs");
+
+//write out data
+ function done(output) {
+     process.stdout.write(output);
+     process.stdout.write('\nprompt > ');
+ }
+
+//where we will store our commands
+ function evaluateCmd(userInput) {
+  //parses the user input to understand which command was typed
+   const userInputArray = userInput.split(" ");
+   const command = userInputArray[0];
+    switch (command) {
+      case "echo":
+       //we will add the functionality of echo next within the object commandLibrary
+       commandLibrary.echo(userInputArray.slice(1).join(" "));
+       break;
+      case "cat":
+        commandLibrary.cat(userInputArray.slice(1));
+        break;
+    }
+ }
+
+//where we will store the logic of our commands
+ const commandLibrary = {
+   //the echo command
+   "echo": function(userInput) {
+      done(userInput);
+  },
+  //the cat command
+  "cat": function(fullPath) {
+       const fileName = fullPath[0];
+       fs.readFile(fileName, (err, data) => {
+           if (err) throw err;
+           done(data);
+       });
+   }
+ };
+
+ module.exports.commandLibrary = commandLibrary;
+ module.exports.evaluateCmd = evaluateCmd;
+
+2.
+>cat commands.js | head -3
+This command reads the contents of the file and prints out the first 3 lines of it
+
+6.
+function reverseString(inputString){
+  return inputString.split('').reverse().join('')
+}
+//testing reverseString function
+console.log(reverseString("hello"));
