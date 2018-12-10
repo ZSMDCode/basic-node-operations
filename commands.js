@@ -26,9 +26,8 @@ function evaluateCmd(userInput) {
   case "tail":
     commandLibrary.tail(userInputArray.slice(1));
     break;
-  case "default":
-    commandLibrary.errorHandler(userInput);
-    break;
+  default:
+    process.stdout.write('Command does not exist, please try again');
   }
 }
 
@@ -47,26 +46,21 @@ const commandLibrary = {
  "head": function(fullPath) {
       const fileName = fullPath[0];
       fs.readFile(fileName, (err, data) => {
-        if (err) throw err;
-        done(data);
-      });
- },
+      if (err) throw err;
+      var text;
+      text = text.split('\n').slice(0,3).join('\n');
+      done(text);
+   });
+},
  "tail": function(fullPath) {
    const fileName = fullPath[0];
    fs.readFile(fileName, (err, data) => {
      if (err) throw err;
-     done(data);
-   });
- },
- "errorHandler": function(userInput){
-   const fileName = fullPath[0];
-   fs.readFile('file not here', (err, data) => {
-     if (err) {
-       console.log('error reading file', err);
-       return;
-     }
-   });
- }
+     var text;
+     text = text.split('\n').slice(-3).join('\n');
+     done(text);
+  });
+},
 };
 
 module.exports.commandLibrary = commandLibrary;
